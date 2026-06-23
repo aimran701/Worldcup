@@ -1,0 +1,334 @@
+/* تنسيقات عامة للموقع */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #05140b; /* أخضر غامق جداً كخلفية للموقع */
+    color: #ffffff;
+    scroll-behavior: smooth; /* حركة هبوط ناعمة عند الضغط على الزر */
+}
+
+/* --- تنسيق الواجهة الترحيبية الكاملة (Hero) --- */
+#hero {
+    height: 100vh; /* تأخذ 100% من ارتفاع شاشة المستخدم تماماً */
+    width: 100%;
+    background: linear-gradient(135deg, #061f10 0%, #030d07 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* استخدام Flexbox لترتيب الصورة والنصوص بجانب بعضهما */
+.hero-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-text {
+    flex: 1;
+    padding-left: 40px;
+}
+
+.hero-text .sub-title {
+    color: #cda250; /* اللون الذهبي الملكي لكأس العالم */
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin: 15px 0;
+    line-height: 1.2;
+}
+
+.hero-text h1 span {
+    color: #cda250;
+}
+
+.hero-text p {
+    color: #a0b2a6;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+/* تنسيق زر الانطلاق التفاعلي */
+.btn-hero {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: #cda250;
+    color: #05140b;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(205, 162, 80, 0.3);
+    transition: 0.3s ease;
+}
+
+.btn-hero:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(205, 162, 80, 0.5);
+    background-color: #e5b865;
+}
+
+/* تنسيق قسم الصورة */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 80vh;
+    border-radius: 15px;
+    /* إضافة توهج خفيف خلف الصورة ليعطي فخامة */
+    filter: drop-shadow(0 0 30px rgba(205, 162, 80, 0.15)); 
+}
+
+/* سهم الإشارة للهبوط */
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #cda250;
+    font-size: 0.9rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+    40% { transform: translate(-50%, -10px); }
+    60% { transform: translate(-50%, -5px); }
+}
+
+/* --- تنسيق قسم المحتوى السفلي (المباريات والمعلومات) --- */
+#main-content {
+    padding: 80px 20px;
+    background-color: #030d07;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: #cda250;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #a0b2a6;
+}
+
+/* استخدام Flexbox لتوزيع كروت المباريات بشكل مرن ومتجاوب */
+.matches-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap; /* لجعل الكروت تنزل لأسفل في الشاشات الصغيرة */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.match-card {
+    background-color: #061f10;
+    border: 1px solid rgba(205, 162, 80, 0.2);
+    padding: 25px;
+    border-radius: 12px;
+    width: 300px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.match-card:hover {
+    border-color: #cda250;
+    transform: translateY(-5px);
+}
+
+.match-card h3 {
+    color: #cda250;
+    margin-bottom: 15px;
+}
+
+.match-card .time {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #a0b2a6;
+    background: rgba(255,255,255,0.05);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* ==========================================================================
+   تنسيق قسم أساطير كأس العالم (Legends Section)
+   ========================================================================== */
+.legends-section {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(205, 162, 80, 0.1);
+}
+
+/* استخدام Flexbox لتوزيع كروت الأساطير بشكل مرن ومحاذاتها في المنتصف */
+.legends-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* لجعل الكروت تنزل لأسفل تلقائياً في الشاشات الصغيرة */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* تنسيق كارت الأسطورة مع إضافة لمسة الخط الذهبي الجانبي */
+.legend-card {
+    background: linear-gradient(180deg, #061f10 0%, #04140b 100%);
+    border-left: 4px solid #cda250; /* خط ذهبي جانبي ملكي */
+    padding: 25px;
+    border-radius: 8px;
+    width: 340px;
+    transition: 0.3s ease; /* لتنعيم حركة تأثير الـ Hover */
+}
+
+/* تأثير عند مرور مؤشر الماوس فوق الكارت */
+.legend-card:hover {
+    transform: scale(1.03); /* تكبير خفيف جداً للكارت */
+    box-shadow: 0 10px 20px rgba(205, 162, 80, 0.1); /* توهج ذهبي خفيف */
+}
+
+/* تنسيق اسم الأسطورة */
+.legend-info h3 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+/* تنسيق اسم الدولة والعلم */
+.legend-info .country {
+    display: inline-block;
+    color: #cda250; /* اللون الذهبي الخاص بكأس العالم */
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* تنسيق النص والوصف داخل كارت الأسطورة */
+.legend-info p {
+    color: #a0b2a6;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+/* --- تنسيق قسم التوقعات --- */
+.predictions-section {
+    margin-top: 60px;
+    padding: 40px 20px;
+    background: rgba(6, 31, 16, 0.5); /* خلفية خضراء داكنة شفافة */
+    border-radius: 20px;
+    border: 1px solid rgba(205, 162, 80, 0.1);
+}
+
+.predictions-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.prediction-card {
+    background-color: #030d07;
+    border: 1px solid rgba(205, 162, 80, 0.15);
+    border-radius: 12px;
+    padding: 25px;
+    width: 380px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.prediction-card h3 {
+    color: #cda250;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* تنسيق عرض المنتخبات المتواجهة */
+.teams-versus {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+.teams-versus .vs {
+    color: #cda250;
+    background: rgba(205, 162, 80, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+}
+
+/* تنسيق أزرار التوقع التفاعلية */
+.prediction-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-predict {
+    flex: 1;
+    padding: 10px 5px;
+    background: transparent;
+    border: 1px solid #cda250;
+    color: #cda250;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+/* تأثير عند تمرير الماوس وضغط الزر */
+.btn-predict:hover {
+    background-color: #cda250;
+    color: #05140b;
+}
+
+.btn-predict.draw {
+    border-color: #a0b2a6;
+    color: #a0b2a6;
+}
+
+.btn-predict.draw:hover {
+    background-color: #a0b2a6;
+    color: #05140b;
+}
+.percent {
+    font-size: 0.85rem;
+    color: #cda250;
+    margin-top: 5px;
+    font-weight: normal;
+    opacity: 0.8;
+}
+   
+
+        
